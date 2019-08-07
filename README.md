@@ -14,10 +14,17 @@ const neworientation = exifmath.compose(5, 7)
 // neworientation: 3
 ```
 
-### operations (Number) -> { flip: Boolean, angle: Number }
+### operations (Number, { flop: Boolean }) -> { flip: Boolean, angle: Number }
 Given an EXIF orientation, returns the meaning in an object defining whether or
 not to flip first, and a rotation angle to apply after the flip.
 ```
-const exifmath = require('exif-orientation-math')
 const operations = exifmath.operations(5)
 // operations: { flip: true, angle: 270 }
+```
+`flop` option should be used if the image manipulation library being used supports
+a vertical flip. Will return an additional `flop: Boolean` in the return to represent
+the vertical flip operation. This will result in the minimum number of operations.
+```
+const operations = exifmath.operations(4, { flop: true })
+// operations: { flip: false, flop: true, angle: 0 }
+```

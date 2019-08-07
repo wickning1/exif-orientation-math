@@ -66,8 +66,9 @@ module.exports = {
       if (second === 8) return 3
     }
   },
-  operations: function (orientation) {
+  operations: function (orientation, options = {}) {
     const o = parseInt(orientation)
+    if (options.flop && o === 4) return { flip: false, flop: true, angle: 0 }
     const flip = [2, 4, 5, 7].includes(o)
     const angle = [0, 0, 180, 180, 270, 270, 90, 90][o]
     return { flip, angle }
