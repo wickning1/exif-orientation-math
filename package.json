@@ -1,6 +1,6 @@
 {
   "name": "exif-orientation-math",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Small library to compose multiple exif orientation values and convert an orientation into flip and rotate instructions.",
   "main": "index.js",
   "scripts": {
